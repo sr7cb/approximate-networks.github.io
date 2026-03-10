@@ -122,28 +122,28 @@
             margin-bottom: 3rem;
         }
 
-        .email-link {
+        .contact-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
             color: var(--accent);
-            text-decoration: none;
             padding: 0.75rem 1.5rem;
             border: 1px solid rgba(59, 130, 246, 0.25);
             border-radius: 8px;
             background: var(--accent-glow);
+            cursor: pointer;
             transition: all 0.3s;
         }
 
-        .email-link:hover {
+        .contact-btn:hover {
             border-color: var(--accent);
             background: rgba(59, 130, 246, 0.18);
             transform: translateY(-2px);
         }
 
-        .email-link svg {
+        .contact-btn svg {
             width: 16px;
             height: 16px;
         }
@@ -171,14 +171,22 @@
             Today's networks treat every byte as equally important, but AI workloads are inherently approximate. Most of what crosses the wire doesn't matter. We're building a networking platform smart enough to know the difference. Coming soon
         </p>
 
-        <a href="mailto:sanilr@approximate-networks.com" class="email-link">
+        <button class="contact-btn" id="contactBtn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
             </svg>
-            sanilr@approximate-networks.com
-        </a>
+            Contact Us
+        </button>
     </div>
 
     <div class="footer">&copy; 2026 Approximate Networks</div>
+
+    <script>
+        document.getElementById('contactBtn').addEventListener('click', function() {
+            var a = [115,97,110,105,108,114];
+            var b = [97,112,112,114,111,120,105,109,97,116,101,45,110,101,116,119,111,114,107,115,46,99,111,109];
+            window.location.href = 'mai' + 'lto:' + a.map(function(c){return String.fromCharCode(c)}).join('') + '@' + b.map(function(c){return String.fromCharCode(c)}).join('');
+        });
+    </script>
 </body>
 </html>
