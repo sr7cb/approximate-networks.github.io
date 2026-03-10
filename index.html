@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approximate Networks</title>
+    <meta name="description" content="Approximate Networks — Rethinking the AI networking stack.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #07090d;
+            --border: #1a2030;
+            --text: #e8ecf4;
+            --text-secondary: #8090aa;
+            --text-muted: #4a5a74;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+
+        .logo-symbol {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--accent);
+            background: var(--accent-glow);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 8px;
+            background: var(--accent-glow);
+            transition: all 0.3s;
+        }
+
+        .email-link:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .email-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 2rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+
+    <div class="container">
+        <div class="logo">
+            <div class="logo-symbol">≈</div>
+            <span class="logo-text">Approximate Networks</span>
+        </div>
+
+        <h1>Rethinking the <span class="highlight">AI networking stack.</span></h1>
+
+        <p>
+            Today's networks treat every byte as equally important, but AI workloads are inherently approximate. Most of what crosses the wire doesn't matter. We're building a networking platform smart enough to know the difference. Coming soon
+        </p>
+
+        <a href="mailto:sanilr@approximate-networks.com" class="email-link">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            sanilr@approximate-networks.com
+        </a>
+    </div>
+
+    <div class="footer">&copy; 2026 Approximate Networks</div>
+</body>
+</html>
